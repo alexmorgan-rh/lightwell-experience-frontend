@@ -6,6 +6,7 @@ import {
   LIGHTWELL_ORIGIN,
   PACKAGE_DESCRIPTIONS,
   REPOSITORY_DESCRIPTIONS,
+  TECH_PREVIEW_CONTENT_TYPES,
 } from './constants';
 
 const getContentTypeParameters = (contentType?: string) => {
@@ -16,6 +17,9 @@ const getContentTypeParameters = (contentType?: string) => {
 
 export const getEcosystemFromContentType = (contentType?: string): string | undefined =>
   getContentTypeParameters(contentType)?.ecosystem;
+
+export const isTechPreviewContentType = (contentType?: string): boolean =>
+  !!contentType && TECH_PREVIEW_CONTENT_TYPES.includes(contentType.toLowerCase());
 
 export const getEcosystemIcon = (ecosystemOrContentType?: string): ReactElement => {
   switch (ecosystemOrContentType?.toLowerCase()) {
